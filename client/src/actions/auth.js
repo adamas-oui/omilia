@@ -1,10 +1,10 @@
-import axios from 'axios'
-import { setAlert } from './alert'
+import axios from 'axios';
+import { setAlert } from './alert';
 
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL
-} from './types'
+} from './types';
 
 //action - Register User
 export const register = ({ name, email, password }) => async dispatch => {
@@ -14,14 +14,14 @@ export const register = ({ name, email, password }) => async dispatch => {
     }
   }
   
-  const body = JSON.stringify({ name, email, password })
+  const body = JSON.stringify({ name, email, password });
   
   try {
     const res = await axios.post('/api/users', body, config);
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
-    })
+    });
   } catch (err) {
     //show alerts if we are missing info from the user
     const errors = err.response.data.errors;
