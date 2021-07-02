@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
@@ -19,9 +19,9 @@ const Register = ({ setAlert, register }) => {
     
     const {name, email, password, password2} = formData;
     
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     //update for every field
-    const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
+    const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
     
     const onSubmit = async (e) => {
       e.preventDefault();
